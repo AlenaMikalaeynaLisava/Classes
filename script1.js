@@ -13,8 +13,8 @@ class User{
   }
 }
 
-const user =new User("Alice Cooper", "Bla");
-user.sendMessage("Iou");
+//const user =new User("Alice Cooper", "Bla");
+//user.sendMessage("Iou");
 
 
 
@@ -26,29 +26,25 @@ class SuperUser extends User{
     super (name,password);
   }
   getCreatedUsers(){ 
-   /*let currentUser = {};
-    currentUser.name= this.name;
-    currentUser.password = this.password;
-    return currentUser;*/
     //5. Возвращаем созданных юзеров
-    return this;
+    return SuperUser.createdUsers;
     
   }
 //3. Статическое свойство  --createdUsers =[]
   static createdUsers =[];
-  static createUser(name, pass){
+  createUser(name, pass){
     //6. Записать в массив имя созданного юзера
-    this.createdUsers.push(name);
+    SuperUser.createdUsers.push(name);
+    return new User(name, pass);
     //7. Вернуть новый объект класса User 
-    return new this(name, pass);
   }
 } 
 const SuperUserBro =new SuperUser("Older Brother", "BlaBla");
-SuperUserBro.getCreatedUsers();
-SuperUser.createUser("Older Brother", "BlaBla");
-SuperUser.createUser("Older1 Brother", "BlaBla");
-SuperUser.createUser("Older2 Brother", "BlaBla");
 
+SuperUserBro.createUser("Older56 Brother", "BlaBla");
+SuperUserBro.createUser("Older1 Brother", "BlaBla");
+SuperUserBro.createUser("Older2 Brother", "BlaBla");
+SuperUserBro.getCreatedUsers();
 
 
 
@@ -72,5 +68,6 @@ delitCreatedUsers(){
 //класса Admin
 //Дописать метод получения массива удаленных юзеров
 }
-const admin = new Admin("Older1 Brother", "BlaBla");
+const admin = new Admin("Masha", "BlaBlalaBla");
 admin.delitCreatedUsers("Older1 Brother", "BlaBla");
+
