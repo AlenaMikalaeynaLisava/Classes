@@ -13,9 +13,9 @@ class User{
 class SuperUser extends User{
   //1. Умеет создавать ползователей
   //2. Имеет перемнные  name, password -- Не выполнено!!!!!!!!
-  constructor(name, password,type){
+  constructor(name, password){
     //использовать конструктор род. класса
-    super (name,password, type);
+    super (name,password);
   }
   getCreatedUsers(){ 
     //5. Возвращаем созданных юзеров
